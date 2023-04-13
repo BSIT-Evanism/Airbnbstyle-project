@@ -64,7 +64,7 @@ function Header() {
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
-            rangeColors={"#FD5861"}
+            rangeColors={["#FD5861"]}
             onChange={handleSelect}
           />
         </div>
