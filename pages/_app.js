@@ -3,10 +3,10 @@ import Router from "next/router";
 import ProgressBar from "@badrap/bar-of-progress";
 
 const progress = new ProgressBar({
-  size: "8",
+  size: 8,
   color: "#FE595E",
-  className: "z-[100]",
-  delay: 50,
+  className: "z-50",
+  delay: 100,
 });
 
 Router.events.on("routeChangeStart", progress.start);
