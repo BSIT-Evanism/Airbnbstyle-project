@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import InfoCard from "@/components/InfoCard";
+import Map from "@/components/Map";
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -50,6 +51,10 @@ function Search({ searchResults }) {
               />
             )
           )}
+        </section>
+
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <Map />
         </section>
       </main>
 
