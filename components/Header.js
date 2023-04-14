@@ -10,15 +10,29 @@ import {
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { useRouter } from "next/router";
 
-function Header() {
+function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuest, setNoOfGuest] = useState("");
+  const router = useRouter();
 
   const resetInput = () => {
     setSearchInput("");
+  };
+
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuest,
+      },
+    });
   };
 
   const handleSelect = (ranges) => {
@@ -34,7 +48,10 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
-      <div className="relative flex items-center h-10 cursor-pointer">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center h-10 cursor-pointer"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
@@ -50,7 +67,7 @@ function Header() {
           onChange={(e) => setSearchInput(e.target.value)}
           className="pl-5 flex-grow bg-transparent"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <MagnifyingGlassIcon className="hidden md:inline-flex md:mx-2 h-8 bg-red-400 text-white rounded-full p-2" />
       </div>
@@ -91,7 +108,9 @@ function Header() {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button onClick={search} className="flex-grow text-red-400">
+              Search
+            </button>
           </div>
         </div>
       )}
