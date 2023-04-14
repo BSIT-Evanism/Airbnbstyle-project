@@ -53,7 +53,7 @@ function Search({ searchResults }) {
           )}
         </section>
 
-        <section className="hidden xl:inline-flex xl:min-w-[600px] relative">
+        <section className="hidden xl:inline-flex xl:min-w-[600px] relative overflow-hidden">
           <Map searchResults={searchResults} />
         </section>
       </main>
