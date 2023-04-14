@@ -5,8 +5,8 @@ import ProgressBar from "@badrap/bar-of-progress";
 const progress = new ProgressBar({
   size: "8",
   color: "#FE595E",
-  className: "z-90",
-  delay: 100,
+  className: "z-[100]",
+  delay: 50,
 });
 
 Router.events.on("routeChangeStart", progress.start);
