@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function MediumCard({ img, title }) {
   return (
-    <div className="cursor-pointer hover:scale-105 transform transition duration-300 ease-in-out">
+    <div className="group cursor-pointer hover:scale-105 transform transition duration-300 ease-in-out">
       <div className="relative h-80 w-80">
         <Image
           src={img}
@@ -12,7 +12,7 @@ function MediumCard({ img, title }) {
         />
       </div>
 
-      <h3 className="text-2xl mt-3">{title}</h3>
+      <h3 className="text-2xl group-hover:text-red-400 mt-3 transition color duration-400ms ease-in-out">{title}</h3>
     </div>
   );
 }

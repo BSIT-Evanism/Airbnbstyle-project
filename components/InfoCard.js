@@ -1,6 +1,8 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { useState } from "react";
+import Heart from "./Heart";
 
 function InfoCard({ img, location, title, description, star, price, total }) {
   return (
@@ -18,7 +20,8 @@ function InfoCard({ img, location, title, description, star, price, total }) {
       <div className="flex flex-col flex-grow pl-5">
         <div className="flex justify-between">
           <p>{location}</p>
-          <HeartIcon className="h-7 cursor-pointer" />
+
+          <Heart />
         </div>
 
         <h4 className="text-xl">{title}</h4>
